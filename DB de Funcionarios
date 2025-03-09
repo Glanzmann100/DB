@@ -1,0 +1,29 @@
+CREATE DATABASE empresa
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
+
+use empresa;
+
+CREATE TABLE funcionários (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(100),
+cargo VARCHAR(50),
+salario DECIMAL(10,2),
+data_contratacao DATE
+);
+
+INSERT INTO funcionários (nome, cargo, salario, data_contratacao) VALUES
+('kaique', 'analista de suporte', 4300, '2014-09-16'),
+('fernanda', 'gerente', 6800, '2012-01-13'),
+('joão', 'programador', 5200, '2018-10-11'),
+('luana', 'RH', 4000, '2017-04-06');
+
+select * from funcionários;
+
+select * from funcionários
+where salario >= 4000;
+
+select * from funcionários
+order by nome asc;
+
+select AVG(salario) AS media_salarial FROM funcionários;
