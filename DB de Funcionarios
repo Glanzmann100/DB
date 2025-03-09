@@ -22,19 +22,23 @@ FOREIGN KEY (departamento_id) REFERENCES departamento(id);
 INSERT INTO departamento (nome) VALUES 
 ('TI'), 
 ('RH'), 
-('FINANCEIRO');
+('FINANCEIRO'),
+('DIREITO');
 
 INSERT INTO funcionários (nome, cargo, salario, data_contratacao, departamento_id) VALUES
 ('kaique', 'analista de suporte', 4300, '2014-09-16', 3),
 ('fernanda', 'gerente', 6800, '2012-01-13', 2),
 ('joão', 'programador', 5200, '2018-10-11', 1),
+('carlos', 'advogado', 7000, '2020-01-16', 4),
 ('luana', 'RH', 4000, '2017-04-06', 2);
 
-SELECT f.nome, f.cargo, d.nome AS departamento 
-FROM funcionários f 
-JOIN departamento d ON f.departamento_id = d.id;
+SELECT funcionarios.nome, funcionarios.cargo, departamento.nome AS departamento 
+FROM funcionarios 
+JOIN departamento ON funcionarios.departamento_id = departamento.id;
 
 SELECT * FROM departamento;
 DESC departamento;
+SELECT * FROM funcionários;
+DESC funcionários;
 
 SELECT AVG(salario) AS media_salarial FROM funcionários;
